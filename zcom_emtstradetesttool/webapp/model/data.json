@@ -1,0 +1,43 @@
+{
+    "TransactionTypeCode": [
+        {
+            "tCode": "Buy"
+        },
+        {
+            "tCode": "Sell"
+        }
+    ],
+    "TransactionStatusCode": [
+        {
+            "sCode": "Pending"
+        },
+        {
+            "sCode": "Completed"
+        }
+    ],
+    "DCode": [
+        {
+            "dCode": "3"
+        },
+        {
+            "dCode": "4"
+        },
+        {
+            "dCode": "5"
+        },
+        {
+            "dCode": "6"
+        },
+        {
+            "dCode": "7"
+        }
+    ],
+    "QAP": [
+        {
+            "qap": "10"
+        },
+        {
+            "qap": "20"
+        }
+    ]
+}

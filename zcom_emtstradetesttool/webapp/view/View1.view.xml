@@ -1,0 +1,183 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    controllerName="zcomemtstradetesttool.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <form:SimpleForm
+                id="_IDGenSimpleForm"
+                editable="true"
+                class="sapUxAPObjectPageSubSectionAlignContent"
+                layout="ColumnLayout"
+                columnsM="2"
+                columnsL="3"
+                columnsXL="4"
+                visible="{visibilityControl>/View}"
+            >
+                <form:content>
+                    <Label
+                        id="_IDGenLabel1"
+                        text="Transaction ID"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input id="inp_transactionId" />
+                    <Label
+                        id="_IDGenLabel2"
+                        text="BOL"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input id="inp_bol" />
+                    <Label
+                        id="_IDGenLabel"
+                        text="Date"
+                        required="true"
+                        design="Bold"
+                    />
+                    <DatePicker
+                        id="inp_date"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="dd.MM.yyyy"
+                    />
+                    <Label
+                        id="_IDGenLabel3"
+                        text="CDX ID"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input
+                        id="inp_cdxId"
+                        editable="false"
+                    />
+                    <Label
+                        id="_IDGenLabel4"
+                        text="PTD Number"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input id="inp_ptdNumber" />
+                    <Label
+                        id="_IDGenLabel5"
+                        text="Invoice Number"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input id="inp_invoiceNumber" />
+                    <Label
+                        id="_IDGenLabel6"
+                        text="Transaction Type Code"
+                        required="true"
+                        design="Bold"
+                    />
+                    <ComboBox
+                        id="inp_transactionTypeCode"
+                        items="{/TransactionTypeCode}"
+                    >
+                        <core:Item
+                            id="_IDGenInput1Comb"
+                            text="{tCode}"
+                        />
+                    </ComboBox>
+                    <Label
+                        id="_IDGenLabel7"
+                        text="Transaction Status Code"
+                        required="true"
+                        design="Bold"
+                    />
+                    <ComboBox
+                        id="inp_transactionStatusCode"
+                        items="{/TransactionStatusCode}"
+                    >
+                        <core:Item
+                            id="_IDGenInput2Comb"
+                            text="{sCode}"
+                        />
+                    </ComboBox>
+                    <Label
+                        id="_IDGenLabel8"
+                        text="D-Code"
+                        required="true"
+                        design="Bold"
+                    />
+                    <ComboBox
+                        id="inp_dCode"
+                        items="{/DCode}"
+                    >
+                        <core:Item
+                            id="_IDGenInput3Comb"
+                            text="{dCode}"
+                        />
+                    </ComboBox>
+                    <Label
+                        id="_IDGenLabel9"
+                        text="Fuel Volume"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input
+                        id="inp_FuelVolume"
+                        
+                    />
+                    <Label
+                        id="_IDGenLabel10"
+                        text="OTC Quantity"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input
+                        id="inp_otcQuantity"
+                        value=""
+                    />
+                    <Label
+                        id="_IDGenLabel11"
+                        text="Trading Partner"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input
+                        id="inp_tradingPartner"
+                        value=""
+                    />
+                    <Label
+                        id="_IDGenLabel12"
+                        text="QAP"
+                        required="true"
+                        design="Bold"
+                    />
+                    <ComboBox
+                        id="inp_qap"
+                        items="{/QAP}"
+                    >
+                        <core:Item
+                            id="_IDGenInput4Comb"
+                            text="{qap}"
+                        />
+                    </ComboBox>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <footer>
+            <Bar
+                id="_IDGenBar"
+                design="Footer"
+            >
+                <contentRight>
+                    <Button
+                        id="_IDGenButton"
+                        text="Submit"
+                        type="Accept"
+                        press="onSubmit"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>
