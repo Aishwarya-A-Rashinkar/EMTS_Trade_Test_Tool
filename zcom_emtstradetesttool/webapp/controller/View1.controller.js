@@ -3,19 +3,11 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel"
 ], function (Controller,JSONModel) {
     "use strict";
-
+ 
     return Controller.extend("zcomemtstradetesttool.controller.View1", {
         onInit: function () {
-            var sUUID = this._generateUUID();
-            this.byId("inp_cdxId").setValue(sUUID);
+            this.byId("inp_cdxId").setValue(crypto.randomUUID());
         },
-        _generateUUID: function () {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        },
-
         onSubmit: function () {
             var transactionID = this.getView().byId('inp_transactionId').getValue();
             var bol = this.getView().byId('inp_bol').getValue();
@@ -23,36 +15,52 @@ sap.ui.define([
             var CDXId = this.getView().byId('inp_cdxId').getValue();
             var PTDNumber = this.getView().byId('inp_ptdNumber').getValue();
             var invoiceNumber = this.getView().byId('inp_invoiceNumber').getValue();
-            var transactionTypeCode = this.getView().byId('inp_transactionTypeCode').getValue();
-            var transactionStatusCode = this.getView().byId('inp_transactionStatusCode').getValue();
-            var dCode = this.getView().byId('inp_dCode').getValue();
+            var transactionTypeCode = this.getView().byId('inp_transactionTypeCode').getSelectedKey();
+            var transactionStatusCode = this.getView().byId('inp_transactionStatusCode').getSelectedKey();
+            var dCode = this.getView().byId('inp_dCode').getSelectedKey();
             var fuelVolume = this.getView().byId('inp_FuelVolume').getValue();
             var OTCQuantity = this.getView().byId('inp_otcQuantity').getValue();
             var tradingPartner = this.getView().byId('inp_tradingPartner').getValue();
-            var QAP = this.getView().byId('inp_qap').getValue();
-
+            var QAP = this.getView().byId('inp_qap').getSelectedKey();
+ 
             var oFormData = {
-                transactionID: transactionID,
-                bol: bol,
-                date: date,
-                CDXId: CDXId,
+                TransactionIdentifier: transactionID,
+                BillOfLading: bol,
+                TransferDate: date,
+                CDXTransactionIdentifier: CDXId,
                 PTDNumber: PTDNumber,
-                invoiceNumber: invoiceNumber,
-                transactionTypeCode: transactionTypeCode,
-                transactionStatusCode: transactionStatusCode,
-                dCode: dCode,
-                fuelVolume: fuelVolume,
-                OTCQuantity: OTCQuantity,
-                tradingPartner: tradingPartner,
-                QAP: QAP
+                Invoice: invoiceNumber,
+                TransactionTypeCode: transactionTypeCode,
+                TransactionStatusCode: transactionStatusCode,
+                FuelCode: dCode,
+                BatchVolume: fuelVolume,
+                RINQuantity: OTCQuantity,
+                TransactionPartnerOrganizationIdentifier: tradingPartner,
+                QAPServiceType: QAP
             };
-
-            var oFormModel = new JSONModel(oFormData);
-            this.getView().setModel(oFormModel, "formData");
-
-            console.log(oFormModel);
-            console.log(oFormData);
-
+ 
+            var sUrl = "https://chsincdev.it-cpi019-rt.cfapps.us10-002.hana.ondemand.com/http/sendEMTSTrades";  
+ 
+            $.ajax({
+                url: sUrl,
+                method: "POST",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(oFormData),
+                beforeSend: function(xhr) {
+                    // var encodedCredentials = btoa(sUsername + ":" + sPassword);
+                    xhr.setRequestHeader("Authorization", `Basic c2ItZjhiZGE3ZWUtOTM2NC00MTZmLWJhYTktMGI2MWFmMzFiYzc3IWI3Mjc0fGl0LXJ0LWNoc2luY2RldiFiNTYxODY6ZGQ4NmQ5OTUtNmU1ZS00NzU2LWJhMTctMDMwM2Y5MzVmYWVkJHhpZURLVjdTZlI1S1hTN1FwX3ZBRE5yNUdtRmpmT1Nmd195R0xZQUthUzg9`);
+                },
+                success: function(data) {
+                    debugger
+                    console.log("Success:", data);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    debugger
+                    console.error("Error:", textStatus, errorThrown);
+                }
+            });
+ 
         }
     });
 });
