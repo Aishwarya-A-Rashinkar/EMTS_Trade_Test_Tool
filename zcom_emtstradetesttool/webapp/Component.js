@@ -25,8 +25,8 @@ sap.ui.define([
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
-                var oModel = new JSONModel("model/data.json");
-                this.setModel(oModel);
+                // var oModel = new JSONModel("model/data.json");
+                // this.setModel(oModel);
 
                 // enable routing
                 this.getRouter().initialize();

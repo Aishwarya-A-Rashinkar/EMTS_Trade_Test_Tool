@@ -77,16 +77,15 @@
                         required="true"
                         design="Bold"
                     />
-                    <ComboBox
-                        id="inp_transactionTypeCode"
-                       
-                    >
-                        <core:Item id="_IDGenItem8"
+                    <ComboBox id="inp_transactionTypeCode">
+                        <core:Item
+                            id="_IDGenItem8"
                             key="4"
                             text="Buy"
                         />
-                        <core:Item id="_IDGenItem9"
-                           key="5"
+                        <core:Item
+                            id="_IDGenItem9"
+                            key="5"
                             text="Sell"
                         />
                     </ComboBox>
@@ -98,14 +97,16 @@
                     />
                     <ComboBox
                         id="inp_transactionStatusCode"
-                       
+                        selectionChange="onTransactionStatusChange"
                     >
-                        <core:Item id="_IDGenItem10"
-                            key="05"
+                        <core:Item
+                            id="_IDGenItem10"
+                            key="5"
                             text="Pending"
                         />
-                         <core:Item id="_IDGenItem11"
-                            key="07"
+                        <core:Item
+                            id="_IDGenItem11"
+                            key="7"
                             text="Completed"
                         />
                     </ComboBox>
@@ -115,32 +116,32 @@
                         required="true"
                         design="Bold"
                     />
-                    <ComboBox
-                        id="inp_dCode"
-                     
-                    >
-                       
-                        <core:Item id="_IDGenItem3"
+                    <ComboBox id="inp_dCode">
+                        <core:Item
+                            id="_IDGenItem3"
                             key='3'
                             text="Cellulosic biofuel"
                         />
-                         <core:Item id="_IDGenItem4"
+                        <core:Item
+                            id="_IDGenItem4"
                             key='4'
                             text="Biomass based diesel"
                         />
-                         <core:Item id="_IDGenItem5"
+                        <core:Item
+                            id="_IDGenItem5"
                             key='5'
                             text="Advanced biofuel"
                         />
-                         <core:Item id="_IDGenItem6"
+                        <core:Item
+                            id="_IDGenItem6"
                             key='7'
                             text="Renewable fuel"
                         />
-                           <core:Item id="_IDGenItem7"
+                        <core:Item
+                            id="_IDGenItem7"
                             key='6'
                             text="Cellulosic diesel"
                         />
- 
                     </ComboBox>
                     <Label
                         id="_IDGenLabel9"
@@ -148,10 +149,7 @@
                         required="true"
                         design="Bold"
                     />
-                    <Input
-                        id="inp_FuelVolume"
-                       
-                    />
+                    <Input id="inp_FuelVolume" />
                     <Label
                         id="_IDGenLabel10"
                         text="OTC Quantity"
@@ -171,6 +169,8 @@
                     <Input
                         id="inp_tradingPartner"
                         value=""
+                        showValueHelp="true"
+                        valueHelpRequest="partnerValueHelp"
                     />
                     <Label
                         id="_IDGenLabel12"
@@ -178,19 +178,30 @@
                         required="true"
                         design="Bold"
                     />
-                    <ComboBox
-                        id="inp_qap"
-                       
-                    >
-                        <core:Item id="_IDGenItem1"
+                    <ComboBox id="inp_qap">
+                        <core:Item
+                            id="_IDGenItem1"
                             key='10'
                             text="Q-RIN"
                         />
-                        <core:Item id="_IDGenItem2"
+                        <core:Item
+                            id="_IDGenItem2"
                             key='30'
                             text="Unverified"
                         />
                     </ComboBox>
+                    <Label
+                        id="_IDGenLabel13"
+                        text="Matched Transaction Identifier"
+                        required="true"
+                        design="Bold"
+                    />
+                    <Input
+                        id="inp_matchedTransactionIdentifier"
+                        value=""
+                        showValueHelp="true"
+                        valueHelpRequest="matchedValueHelp"
+                    />
                 </form:content>
             </form:SimpleForm>
         </content>

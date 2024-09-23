@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		id="tableSelectDialogEMTS"
+		title="Select Matched Transaction Identifier"
+		confirm=".onSelectMatched"
+		search=".searchMatched"
+        multiSelect="false"
+		showClearButton="true"
+		items="{
+			path : '/RegulationComplianceTransaction'
+		}">
+		<ColumnListItem id="idTransactionColumnList" vAlign="Middle">
+			<cells>
+				<Text id="extTransactionNumber" text="{extTransactionNumber}" />
+				<Text id="EMTSsubObjectScenario" text="{subObjectScenario}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="TransactionNumber" width="12em">
+				<header>
+					<Text id="EMTSrenewalCreditIDLabel" text="Transaction Identifier" />
+				</header>
+			</Column>
+			<Column id="subObjectScenario" width="12em">
+				<header>
+					<Text id="SubobjectScenario" text="Sub Object Scenario" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

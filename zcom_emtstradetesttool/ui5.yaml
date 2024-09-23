@@ -15,6 +15,11 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /odata
+            url: https://chs-inc-dev-appdev-zcom-txnsrv-srv.cfapps.us10.hana.ondemand.com
+            destination: RegulationComplianceTransactionService
+            authenticationType: OAuth2ClientCredentials
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

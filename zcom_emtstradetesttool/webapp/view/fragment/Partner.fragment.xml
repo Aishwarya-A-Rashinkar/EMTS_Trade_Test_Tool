@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		id="tableSelectDialogMatched"
+		title="Select target Partner"
+        confirm=".onSelectPartner"
+		search=".searchPartner"
+        multiSelect="false"
+		showClearButton="true"
+        items="{
+			path : '/MaintainBusinessPartnerEPAIDMapping'
+		}">
+		<ColumnListItem id="idPartnerColumnList" vAlign="Middle">
+			<cells>
+				<Text id="epaId" text="{epaId}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="_IDGenColumn1"  width="12em">
+				<header>
+					<Text id="_IDGenText"  text="EPA ID" />
+				</header>
+			</Column>
+		</columns>
+		
+	
+	</TableSelectDialog>
+</core:FragmentDefinition>
